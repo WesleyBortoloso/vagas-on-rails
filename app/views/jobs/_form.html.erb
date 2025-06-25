@@ -1,0 +1,27 @@
+<%= form_with(model: [@company, job], local: true) do |form| %>
+  <div class="space-y-4">
+    <div>
+      <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_field :title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm" %>
+    </div>
+
+    <div>
+      <%= form.label :description, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_area :description, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm", rows: 4 %>
+    </div>
+
+    <div>
+      <%= form.label :location, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_field :location, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm" %>
+    </div>
+
+    <div>
+      <%= form.label :job_type, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.select :job_type, ['CLT', 'PJ', 'Estágio'], prompt: "Selecione", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm" %>
+    </div>
+
+    <div class="pt-4">
+      <%= form.submit "Criar Vaga", class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" %>
+    </div>
+  </div>
+<% end %>

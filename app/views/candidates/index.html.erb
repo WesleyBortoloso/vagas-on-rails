@@ -1,0 +1,23 @@
+<div class="container mx-auto px-4 py-6">
+  <h1 class="text-2xl font-bold mb-4">Candidatos</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <% @candidates.each do |candidate| %>
+      <div class="bg-white shadow p-4 rounded border">
+        <h2 class="font-semibold text-lg"><%= candidate.name %></h2>
+        <p class="text-sm text-gray-600"><%= candidate.email %></p>
+        <p class="text-sm text-gray-500 mt-2"><%= truncate(candidate.resume, length: 100) %></p>
+
+        <div class="flex gap-2 mt-4 text-sm">
+          <%= link_to "Ver", candidate_path(candidate), class: "text-blue-600 hover:underline" %>
+          <%= link_to "Editar", edit_candidate_path(candidate), class: "text-yellow-600 hover:underline" %>
+          <%= link_to "Excluir", candidate_path(candidate), method: :delete, data: { confirm: "Tem certeza?" }, class: "text-red-600 hover:underline" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-6">
+    <%= link_to "Novo Candidato", new_candidate_path, class: "bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" %>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<%= form_with(model: application, local: true) do |f| %>
+  <div class="space-y-4">
+    <div>
+      <%= f.label :candidate_id, "Candidato", class: "block text-sm font-medium text-gray-700" %>
+      <%= f.collection_select :candidate_id, Candidate.all, :id, :name, { prompt: "Selecione" }, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm" %>
+    </div>
+
+    <div>
+      <%= f.label :job_id, "Vaga", class: "block text-sm font-medium text-gray-700" %>
+      <%= f.collection_select :job_id, Job.all, :id, :title, { prompt: "Selecione" }, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm" %>
+    </div>
+
+    <div>
+      <%= f.label :status, class: "block text-sm font-medium text-gray-700" %>
+      <%= f.select :status, ["pendente", "em análise", "aceita", "rejeitada"], {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm" %>
+    </div>
+
+    <div>
+      <%= f.submit class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" %>
+    </div>
+  </div>
+<% end %>
