@@ -7,3 +7,13 @@ Service Object – Padrão de Responsabilidade Única
 - CreateJobService
 - RegisterCandidateService
 
+Factory
+
+- ApplicationFactory
+
+Builder
+
+- CandidateBuilder
+- CompanyBuilder
+- JobBuilder
+
